@@ -2,7 +2,7 @@
   "name": "tasks-assessment",
   "version": "1.0.0",
   "description": "System to manage tasks.",
-  "main": "index.js",
+  "main": "dist/index.js",
   "scripts": {
     "test": "jest --runInBand",
     "start": "node dist/index.js",
@@ -22,6 +22,7 @@
   "author": "Mohamed Helmy",
   "license": "ISC",
   "dependencies": {
+    "bcryptjs": "^2.4.3",
     "compression": "^1.7.4",
     "cors": "^2.8.5",
     "dotenv": "^16.0.3",
