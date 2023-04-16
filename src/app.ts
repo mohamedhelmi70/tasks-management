@@ -44,11 +44,13 @@ export class App {
 }
 
 // Sync DB.
-(async () => {
-	try {
-    await sequelize.sync({ alter: true });
-    console.log('sync finished');
-	} catch (e) {
-		console.log(e);
-	}
-})();
+// (async () => {
+// 	try {
+//     await sequelize.authenticate().then(async () => {
+//       await sequelize.sync({ alter: true });
+//       console.log('sync finished');
+//     });
+// 	} catch (e) {
+// 		console.log(e);
+// 	}
+// })();
