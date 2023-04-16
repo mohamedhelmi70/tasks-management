@@ -1,5 +1,5 @@
 //Business logic for all user routes
-import { Task } from "../../db"
+import { Project, Task } from "../../db"
 import MainProvider from "../../index.provider"
 import { GetTasksFilterDto } from "./dto/get-tasks-filter.dto"
 import { CreateTaskDto } from "./dto/create-task.dto"
@@ -16,7 +16,7 @@ export default class TasksService extends MainProvider {
         const {count, rows} = await Task.findAndCountAll({
             attributes: ['id', 'title', 'status'],
             include: [
-                // { model: Project, attributes: ["id", "name"] }
+                { model: Project, attributes: ["id", "name"] }
             ],
             order: [["createdAt", "DESC"]],
             limit: Number(perPage),
@@ -26,7 +26,7 @@ export default class TasksService extends MainProvider {
         return {tasks: rows, meta: {total: count, page, perPage}}
     }
 
-    async createUser (createTaskDto: CreateTaskDto): Promise<{task: ITask}> {
+    async createTask (createTaskDto: CreateTaskDto): Promise<{task: ITask}> {
         const task = await Task.create(createTaskDto);
         return {task}
     }

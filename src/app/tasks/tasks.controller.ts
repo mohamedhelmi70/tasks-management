@@ -36,7 +36,7 @@ export default class TasksController {
     async createTask (req: Request, res: Response, next: NextFunction) {
         try {
             const createTaskDto: CreateTaskDto = req.body;
-            const { task } = await this.tasksService.createUser(createTaskDto);
+            const { task } = await this.tasksService.createTask(createTaskDto);
             res.status(201).json({ message: "task created", payload: { task }, status: "success" });
         } catch (err) {
             CatchError(err, next)
