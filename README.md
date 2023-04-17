@@ -27,13 +27,19 @@ To update and access the code for the system, please follow these steps:
     ```
         PORT=3000
 
-        SECRETKEY (Secret key to generate secured tokens)
-
-        DB_HOST (Database Host)
-        DB_PORT (Database Port)
-        DB_USER (DataBase UserName)
-        DB_PASSWORD (Database Password)
-        DB_NAME (Database Name)
+        //(Secret key to generate secured tokens)
+        SECRETKEY="" 
+        
+        //(Database Host)
+        DB_HOST="" 
+        //(Database Port)
+        DB_PORT=""
+        //(DataBase UserName)
+        DB_USER=""
+        //(Database Password)
+        DB_PASSWORD="" 
+        //(Database Name)
+        DB_NAME=""
     ```
 
 -   To run in development, Run `yarn dev:ts`.
@@ -69,34 +75,39 @@ You will now be able to access CRUD (create, read) endpoints
             "password": "
         }
     ```
+
   - `[POST] http://localhost:3000/signup` Sigup endpoint
   
     ```
         {
             "name": "",   
             "email": "",
-            "password": "
+            "password": ""
         }
     ```
-  - `[POST] http://localhost:3000/signup` ForgetPassword endpoint
+
+  - `[POST] http://localhost:3000/forget-password` ForgetPassword endpoint
   
     ```
         {  
             "email": "",
         }
     ```
+
 ### Tasks
 
   - `[GET] http://localhost:3000/tasks` Get Tasks endpoint
+  
   - `[POST] http://localhost:3000/tasks` Create New Task
   
     ```
         {
             "title": "",
-            "projectId": "", optional
-            "status": "", optional
+            "projectId": "",  optional
+            "status": "",  optional
         }
     ```
+
 ### Projects
 
   - `[GET] http://localhost:3000/projects` Get Projects endpoint
