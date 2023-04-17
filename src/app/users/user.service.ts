@@ -7,10 +7,16 @@ import MainProvider from "../../index.provider"
 import { jwtConfig } from "../../config"
 import { UserLoginDto } from "./dto/user-login.dto"
 import { CreateUserDto } from "./dto/create-user.dto"
+import OTPService from "./otps/otp.service"
+import { ForgetPasswordDto } from "./dto/forget-password.dto"
+import { IOtp } from "./otps/otp.interface"
+import { CreateOTPDto } from "./dto/create-otp.dto"
 
 export default class UserProvider extends MainProvider {
+  otpService: OTPService;
   constructor() {
-    super("user")
+    super("user");
+    this.otpService = new OTPService();
   }
 
   async login(loginUserDto: UserLoginDto) {
@@ -64,5 +70,25 @@ export default class UserProvider extends MainProvider {
         authorize: userCreated.authorize,
       },
     }
+  }
+
+  async forgetPassword (forgetPasswordDto: ForgetPasswordDto): Promise<{otp: IOtp}> {
+    try {
+      const createOTPDto: CreateOTPDto = new CreateOTPDto();
+      createOTPDto.email = forgetPasswordDto.email;
+
+      //Generate Random Code with fixed length: 4
+      createOTPDto.code = this.genrateCode();
+
+      const { otp } = await this.otpService.createOTP(createOTPDto);
+      
+      return { otp: otp }
+    } catch (error) {
+      throw error;
+    }
+  }
+
+  private genrateCode () {
+    return Math.floor(1000 + Math.random() * 9000)
   }
 }

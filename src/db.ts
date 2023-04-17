@@ -1,6 +1,7 @@
 import User from "./app/models/user.model";
 import Task from "./app/models/task.model";
 import Project from "./app/models/project.model";
+import OTP from "./app/models/otp.model";
 
 User.hasMany(Task);
 Task.belongsTo(User);
@@ -15,5 +16,6 @@ export {
     User,
     Task,
     Project,
+    OTP,
 }
 

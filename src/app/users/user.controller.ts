@@ -1,6 +1,7 @@
 import { Request, Response, NextFunction } from "express"
 import { CatchError } from "../utils/error"
 import { CreateUserDto } from "./dto/create-user.dto";
+import { ForgetPasswordDto } from "./dto/forget-password.dto";
 import { UserLoginDto } from "./dto/user-login.dto";
 import UserService from "./user.service";
 
@@ -51,10 +52,11 @@ export default class UserController {
      */
     async forgetPassword(req: Request, res: Response, next: NextFunction) {
         try {
-            const forgetPasswordDto = req.body;
+            const forgetPasswordDto: ForgetPasswordDto = req.body;
+            const { otp } = await userService.forgetPassword(forgetPasswordDto);
             res.status(200).json({
-                message: "new password send to your email.",
-                // payload: { userId },
+                message: "otp send to your email.",
+                payload: { id: otp.id },
                 status: "success",
             })
         } catch (err) {
