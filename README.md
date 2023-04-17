@@ -62,6 +62,7 @@ You will now be able to access CRUD (create, read) endpoints
 ### Auth
 
   - `[POST] http://localhost:3000/login` Login endpoint
+  
     ```
         {
             "email": "",
@@ -69,6 +70,7 @@ You will now be able to access CRUD (create, read) endpoints
         }
     ```
   - `[POST] http://localhost:3000/signup` Sigup endpoint
+  
     ```
         {
             "name": "",   
@@ -76,7 +78,8 @@ You will now be able to access CRUD (create, read) endpoints
             "password": "
         }
     ```
-    - `[POST] http://localhost:3000/signup` ForgetPassword endpoint
+  - `[POST] http://localhost:3000/signup` ForgetPassword endpoint
+  
     ```
         {  
             "email": "",
@@ -86,6 +89,7 @@ You will now be able to access CRUD (create, read) endpoints
 
   - `[GET] http://localhost:3000/tasks` Get Tasks endpoint
   - `[POST] http://localhost:3000/tasks` Create New Task
+  
     ```
         {
             "title": "",
@@ -97,6 +101,7 @@ You will now be able to access CRUD (create, read) endpoints
 
   - `[GET] http://localhost:3000/projects` Get Projects endpoint
   - `[POST] http://localhost:3000/projects` Create New Project
+  
     ```
         {
             "name": ""
