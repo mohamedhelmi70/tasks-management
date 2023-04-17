@@ -2,11 +2,11 @@ import { Request, Response, NextFunction } from "express"
 import { CatchError } from "../utils/error"
 import { CreateUserDto } from "./dto/create-user.dto";
 import { UserLoginDto } from "./dto/user-login.dto";
-import UserService from "./user.service"
+import UserService from "./user.service";
+
+const userService = new UserService();
 
 export default class UserController {
-    private userService = new UserService();
-
     /**
      * User Login
      * @param {body} email and password
@@ -16,9 +16,9 @@ export default class UserController {
     async login(req: Request, res: Response, next: NextFunction) {
         try {
             const userLoginDto: UserLoginDto = req.body;
-            const { token, user } = await this.userService.login(userLoginDto);
+            const { token, user } = await userService.login(userLoginDto);
             res.status(200).json({
-                message: "logged In success",
+                message: "logged in success",
                 payload: { token, user },
                 status: "success",
             })
@@ -36,7 +36,7 @@ export default class UserController {
     async createUser(req: Request, res: Response, next: NextFunction) {
         try {
             const createUserDto: CreateUserDto = req.body;
-            const { token, user } = await this.userService.createUser(createUserDto);
+            const { token, user } = await userService.createUser(createUserDto);
             res.status(201).json({ message: "user created", payload: { user, token }, status: "success" })
         } catch (err) {
             CatchError(err, next)

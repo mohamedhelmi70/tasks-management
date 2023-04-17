@@ -15,7 +15,6 @@ export default class ProjectsController {
      */
     async getProjects (req: Request, res: Response, next: NextFunction) {
         try {
-            console.log('TEST')
             const getProjectsFilterDto: GetProjectsFilterDto = req.query;
             getProjectsFilterDto.page = 1;
             getProjectsFilterDto.perPage = 15;

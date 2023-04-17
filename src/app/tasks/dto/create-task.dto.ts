@@ -1,6 +1,8 @@
+import { TaskStatus } from "../task.interface";
+
 export class CreateTaskDto {
     title: string;
     projectId?: string;
-    // status: TaskStatus;
+    status: TaskStatus;
     userId: string;
 }

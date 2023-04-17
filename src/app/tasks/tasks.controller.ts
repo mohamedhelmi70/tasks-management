@@ -4,9 +4,9 @@ import { CreateTaskDto } from "./dto/create-task.dto";
 import { GetTasksFilterDto } from "./dto/get-tasks-filter.dto";
 import TasksService from "./tasks.service";
 
-export default class TasksController {
-    private tasksService = new TasksService()
+const tasksService = new TasksService();
 
+export default class TasksController {
     /**
      * List Board Tasks
      * @param {body}
@@ -18,9 +18,9 @@ export default class TasksController {
             const getTasksFilterDto: GetTasksFilterDto = req.query;
             getTasksFilterDto.page = 1;
             getTasksFilterDto.perPage = 15;
-            const { tasks, meta } = await this.tasksService.getTasks(getTasksFilterDto);
+            const { tasks, meta } = await tasksService.getTasks(getTasksFilterDto);
             res.status(200).json({
-                message: "get tasks success",
+                message: "fetched success",
                 payload: { tasks, meta },
                 status: "success",
             })
@@ -39,7 +39,7 @@ export default class TasksController {
         try {
             const createTaskDto: CreateTaskDto = req.body;
             createTaskDto.userId = req.userId;
-            const { task } = await this.tasksService.createTask(createTaskDto);
+            const { task } = await tasksService.createTask(createTaskDto);
             res.status(201).json({ message: "task created", payload: { task }, status: "success" });
         } catch (err) {
             CatchError(err, next)
