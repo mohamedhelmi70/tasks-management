@@ -87,8 +87,4 @@ export default class UserProvider extends MainProvider {
       throw error;
     }
   }
-
-  private genrateCode () {
-    return Math.floor(1000 + Math.random() * 9000)
-  }
 }

@@ -40,4 +40,8 @@ export default class MainProvider {
   protected lowerize(s: string): string {
     return (s && s[0].toLowerCase() + s.slice(1)) || ""
   }
+
+  protected genrateCode () {
+    return Math.floor(1000 + Math.random() * 9000)
+  }
 }
