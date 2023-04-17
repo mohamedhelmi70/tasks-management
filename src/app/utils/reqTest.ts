@@ -4,6 +4,6 @@ import { App } from "../../app"
 
 export const reqTest = supertest(new App().app)
 
-export const api = (dir: string): string => {
-  return "/api/" + path.basename(path.dirname(dir))
+export const api = (): string => {
+  return "/api/"
 }

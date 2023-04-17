@@ -44,6 +44,8 @@ To update and access the code for the system, please follow these steps:
 
 -   To run in development, Run `yarn dev:ts`.
 
+-   To run in tests, Run `yarn test`.
+
 ## Code Explanation
 
 The Backend of ```Tasks Management``` system would be implemented using the typical framework of express which includes:
