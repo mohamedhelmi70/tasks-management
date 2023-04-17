@@ -14,7 +14,7 @@ export default class ProjectsRouter {
 
 	private routes() {
 		//GET - List Projects.
-		this.router.post("/projects", this.validator("list"), validateFields, this.projectsController.getProjects);
+		this.router.get("/projects", this.validator("list"), validateFields, this.projectsController.getProjects);
 		//POST - Create Project.
 		this.router.post("/projects", this.validator("createProject"), validateFields, this.projectsController.createProject);
 	}

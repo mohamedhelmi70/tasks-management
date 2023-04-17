@@ -4,7 +4,6 @@ import helmet from "helmet"
 import cors from "cors"
 import sequelize from "./app/models"
 import rootRouter from "./rootRouter"
-// import * as db from "./db"
 import { createServer, Server as HTTPServer } from "http"
 import express, { Application } from "express"
 

@@ -16,6 +16,8 @@ export default class TasksController {
     async getTasks (req: Request, res: Response, next: NextFunction) {
         try {
             const getTasksFilterDto: GetTasksFilterDto = req.query;
+            getTasksFilterDto.page = 1;
+            getTasksFilterDto.perPage = 15;
             const { tasks, meta } = await this.tasksService.getTasks(getTasksFilterDto);
             res.status(200).json({
                 message: "get tasks success",
@@ -36,6 +38,7 @@ export default class TasksController {
     async createTask (req: Request, res: Response, next: NextFunction) {
         try {
             const createTaskDto: CreateTaskDto = req.body;
+            createTaskDto.userId = req.userId;
             const { task } = await this.tasksService.createTask(createTaskDto);
             res.status(201).json({ message: "task created", payload: { task }, status: "success" });
         } catch (err) {

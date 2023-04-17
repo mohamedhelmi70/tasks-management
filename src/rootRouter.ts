@@ -1,8 +1,8 @@
 import { Application } from "express"
-import { MainRouter } from "./app/router";
+import { MainRouter as Main } from "./app/router";
 
 function router(app: Application) {
-  app.use("/api", new MainRouter().router)
+  app.use("/api", new Main().router)
 }
 
 export default router;

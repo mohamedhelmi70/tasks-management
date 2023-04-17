@@ -15,7 +15,7 @@ export default class TasksRouter {
 
 	private routes() {
 		//GET - List Board.
-		this.router.post("/tasks", this.validator("list"), validateFields, this.tasksController.getTasks);
+		this.router.get("/tasks", this.validator("list"), validateFields, this.tasksController.getTasks);
 		//POST - Create Task Card.
 		this.router.post("/tasks", this.validator("createTask"), validateFields, this.tasksController.createTask);
 	}

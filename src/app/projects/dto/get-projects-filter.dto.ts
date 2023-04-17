@@ -1,5 +1,5 @@
 export class GetProjectsFilterDto {
     search?: string;
-    page?: Number = 1;
-    perPage?: Number = 15;
+    page?: Number;
+    perPage?: Number;
 }
