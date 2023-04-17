@@ -23,6 +23,7 @@ To update and access the code for the system, please follow these steps:
 -   git clone (...url).
 -   Run `yarn install`.
 -   Add `.env` file in the root folder with this fields in the file.
+  
     ```
         PORT=3000
 
@@ -34,6 +35,7 @@ To update and access the code for the system, please follow these steps:
         DB_PASSWORD (Database Password)
         DB_NAME (Database Name)
     ```
+
 -   To run in development, Run `yarn dev:ts`.
 
 ## Code Explanation
@@ -53,7 +55,57 @@ The Backend of ```Tasks Management``` system would be implemented using the typi
 
 The above provides a quick overview on how the code has been setup, would be developed and built.
 
-## Screenshots
+## CRUDS
+
+You will now be able to access CRUD (create, read) endpoints
+
+### Auth
+
+  - `[POST] http://localhost:3000/login` Login endpoint
+    ```
+        {
+            "email": "",
+            "password": "
+        }
+    ```
+  - `[POST] http://localhost:3000/signup` Sigup endpoint
+    ```
+        {
+            "name": "",   
+            "email": "",
+            "password": "
+        }
+    ```
+    - `[POST] http://localhost:3000/signup` ForgetPassword endpoint
+    ```
+        {  
+            "email": "",
+        }
+    ```
+### Tasks
+
+  - `[GET] http://localhost:3000/tasks` Get Tasks endpoint
+  - `[POST] http://localhost:3000/tasks` Create New Task
+    ```
+        {
+            "title": "",
+            "projectId": "", optional
+            "status": "", optional
+        }
+    ```
+### Projects
+
+  - `[GET] http://localhost:3000/projects` Get Projects endpoint
+  - `[POST] http://localhost:3000/projects` Create New Project
+    ```
+        {
+            "name": ""
+        }
+    ```
+
+
+
+## Database Digram
 
 !["DB Schema"](https://github.com/mohamedhelmi70/tasks-management/blob/master/assets/DB_Schema.png?raw=true "DB Schema")
 
