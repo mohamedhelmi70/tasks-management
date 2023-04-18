@@ -1,6 +1,6 @@
 # Tasks Management Backend
 
-Backend APIS that allows users to manage thier tasks.
+Backend APIS that allow users to manage thier tasks.
 
 ## Technology and Tools
 
